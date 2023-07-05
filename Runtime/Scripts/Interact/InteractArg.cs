@@ -4,10 +4,10 @@ namespace HotQueen.Interaction
 {
     public struct InteractionArg
     {
-        public Transform interactor;
+        public Interactor interactor;
         public IInteract interacted;
 
-        public InteractionArg(Transform interactor, IInteract interacted)
+        public InteractionArg(Interactor interactor, IInteract interacted)
         {
             this.interactor = interactor;
             this.interacted = interacted;

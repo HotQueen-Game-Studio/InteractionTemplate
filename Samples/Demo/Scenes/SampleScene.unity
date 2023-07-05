@@ -278,7 +278,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: '#ffffff'
+          m_StringArgument: '#f8ff00'
           m_BoolArgument: 0
         m_CallState: 2
   Activated:
@@ -308,7 +308,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: '#fa0021'
+          m_StringArgument: '#f8ff00'
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!65 &118124492
@@ -452,6 +452,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b4ffd619001f84e85f775d48b52c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interacted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 263355069}
+        m_TargetAssemblyTypeName: HotQueen.Interaction.BoxInteractionResponses, HotQueen.Interaction
+        m_MethodName: ChangeColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: '#fa0021'
+          m_BoolArgument: 0
+        m_CallState: 2
+  StoppedInteraction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 263355069}
+        m_TargetAssemblyTypeName: HotQueen.Interaction.BoxInteractionResponses, HotQueen.Interaction
+        m_MethodName: ChangeColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: '#11ff00'
+          m_BoolArgument: 0
+        m_CallState: 2
+  Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 263355069}
+        m_TargetAssemblyTypeName: HotQueen.Interaction.BoxInteractionResponses, HotQueen.Interaction
+        m_MethodName: ChangeColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: '#f8ff00'
+          m_BoolArgument: 0
+        m_CallState: 2
+  Deactivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 263355069}
+        m_TargetAssemblyTypeName: HotQueen.Interaction.BoxInteractionResponses, HotQueen.Interaction
+        m_MethodName: ChangeColor
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: '#11ff00'
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &263355075
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -658,18 +718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3dfd150168d1a418c70b5e74cd855a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  InteractionCancelled:
-    m_PersistentCalls:
-      m_Calls: []
-  ActivateEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  ActivateCancelled:
-    m_PersistentCalls:
-      m_Calls: []
   distance: 10
   grabber: {fileID: 1742543814}
   moveSpeed: 0.2
@@ -685,6 +733,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c41b07b34dabd4468f89298ce0c1223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  InteractionCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateCancelled:
+    m_PersistentCalls:
+      m_Calls: []
   m_attach: {fileID: 1838488031}
 --- !u!1 &1838488030
 GameObject:

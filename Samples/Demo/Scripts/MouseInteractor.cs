@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace HotQueen.Interaction
 {
-    public class MouseInteractor : Interactor
+    public class MouseInteractor : MonoBehaviour
     {
         public float distance = 1f;
         public Grabber grabber;
@@ -16,12 +16,7 @@ namespace HotQueen.Interaction
 
             Move();
             InputInteraction(hitInfo);
-            InputGrab(hitInfo);
             InputActivate();
-
-
-
-
         }
 
         private void InputActivate()
@@ -29,29 +24,11 @@ namespace HotQueen.Interaction
             //Activate
             if (Input.GetMouseButtonDown(1))
             {
-                Activate();
+                grabber.Activate();
             }
             else if (Input.GetMouseButtonUp(1))
             {
-                CancelActivate();
-            }
-        }
-
-        private void InputGrab(RaycastHit hitInfo)
-        {
-
-            //Grab
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                if (hitInfo.collider.attachedRigidbody
-                    && hitInfo.collider.attachedRigidbody.TryGetComponent<Grabbable>(out Grabbable grabbable))
-                {
-                    grabber.Grab(grabbable);
-                }
-            }
-            else if (Input.GetKeyUp(KeyCode.G))
-            {
-                grabber.Drop();
+                grabber.CancelActivate();
             }
         }
 
@@ -64,14 +41,14 @@ namespace HotQueen.Interaction
                 if (hitInfo.collider.attachedRigidbody
                     && hitInfo.collider.attachedRigidbody.TryGetComponent<InteractBase>(out InteractBase interact))
                 {
-                    Interact(interact);
+                    grabber.Interact(interact);
                 }
 
 
             }
             else if (Input.GetMouseButtonUp(0))
             {
-                CancelInteract();
+                grabber.CancelInteract();
             }
         }
 

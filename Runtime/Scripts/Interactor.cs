@@ -5,15 +5,19 @@ namespace HotQueen.Interaction
 {
     public class Interactor : MonoBehaviour
     {
+        //Callbacks
         public UnityEvent<InteractionArg> InteractEnter;
         public UnityEvent<InteractionArg> InteractionCancelled;
         public UnityEvent<ActivateArg> ActivateEnter;
         public UnityEvent<ActivateArg> ActivateCancelled;
 
+        //Object being interacted
         private InteractBase interacting;
+
+
         public void Interact(InteractBase interact)
         {
-            InteractionArg args = new(this.transform, interact);
+            InteractionArg args = new(this, interact);
             interact.Interact(args);
             InteractEnter?.Invoke(args);
             interacting = interact;
@@ -22,7 +26,7 @@ namespace HotQueen.Interaction
         public void CancelInteract()
         {
             if (interacting == null) { return; }
-            InteractionArg args = new(this.transform, interacting);
+            InteractionArg args = new(this, interacting);
             interacting.StopInteraction(args);
             InteractionCancelled?.Invoke(args);
             interacting = null;

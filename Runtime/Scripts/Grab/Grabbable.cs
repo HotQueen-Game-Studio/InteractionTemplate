@@ -2,14 +2,34 @@ using UnityEngine;
 
 namespace HotQueen.Interaction
 {
-    public class Grabbable : MonoBehaviour
+    public class Grabbable : InteractBase
     {
         private Transform attach;
-        public void Grab(GrabArg args)
+
+        private void Start()
+        {
+            interacted += (ctx) =>
+            {
+                if (ctx.interactor.TryGetComponent<Grabber>(out Grabber grabber))
+                {
+                    Grab(new GrabArg(grabber, this));
+                }
+            };
+
+            stoppedInteraction += (ctx) =>
+            {
+                if (ctx.interactor.TryGetComponent<Grabber>(out Grabber grabber))
+                {
+                    Drop(new GrabArg(grabber, this));
+                }
+            };
+        }
+
+        private void Grab(GrabArg args)
         {
             attach = args.grabber.attach;
         }
-        public void Drop(GrabArg args)
+        private void Drop(GrabArg args)
         {
             attach = null;
         }
