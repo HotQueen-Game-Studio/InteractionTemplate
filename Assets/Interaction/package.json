@@ -1,0 +1,26 @@
+{
+    "name": "com.hotqueen.interactionbasics",
+    "version": "1.0.0",
+    "displayName": "Interaction Basics",
+    "description": "Package made of basic interaction implementations to be used in Hotqueen projects",
+    "unity": "2021.3",
+    "unityRelease": "25f1",
+    "dependencies": {},
+    "keywords": [
+        "Interaction",
+        "Character",
+        "Tool"
+    ],
+    "author": {
+        "name": "Logout",
+        "email": "matheus.bertos2@gmail.com",
+        "url": ""
+    },
+    "samples": [
+        {
+            "displayName": "Demo",
+            "description": "Contains example of how this package works",
+            "path": "Samples~/Demo"
+        }
+    ]
+}
