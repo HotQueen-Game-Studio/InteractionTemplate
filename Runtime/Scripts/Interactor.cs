@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 namespace HotQueen.Interaction
 {
+
     public class Interactor : MonoBehaviour
     {
         //Callbacks
@@ -13,6 +14,10 @@ namespace HotQueen.Interaction
 
         //Object being interacted
         private InteractBase interacting;
+
+        //Attach references
+        [SerializeField] private Transform m_attach;
+        public Transform attach { get { return m_attach; } }
 
 
         public void Interact(InteractBase interact)
