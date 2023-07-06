@@ -4,7 +4,7 @@ namespace HotQueen.Interaction
 {
     public struct ActivateArg
     {
-        public Transform interactor;
+        public Interactor interactor;
         public IActivate interacted;
 
         public ActivateArg(Transform interactor, IActivate interacted)
