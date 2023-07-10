@@ -40,14 +40,14 @@ namespace HotQueen.Interaction
         public void Activate()
         {
             if (interacting == null) { return; }
-            ActivateArg args = new(this.transform, interacting);
+            ActivateArg args = new(this, interacting);
             interacting.Activate(args);
             ActivateEnter?.Invoke(args);
         }
         public void CancelActivate()
         {
             if (interacting == null) { return; }
-            ActivateArg args = new(this.transform, interacting);
+            ActivateArg args = new(this, interacting);
             interacting.Deactivate(args);
             ActivateCancelled?.Invoke(args);
         }
