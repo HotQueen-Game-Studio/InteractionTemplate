@@ -2,10 +2,10 @@
 {
     public struct GrabArg
     {
-        public Grabber grabber;
+        public Interactor grabber;
         public Grabbable grabbable;
 
-        public GrabArg(Grabber grabber, Grabbable grabbable)
+        public GrabArg(Interactor grabber, Grabbable grabbable)
         {
             this.grabber = grabber;
             this.grabbable = grabbable;

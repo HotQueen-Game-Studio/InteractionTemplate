@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18356854, g: 0.22771771, b: 0.2975019, a: 1}
+  m_IndirectSpecularColor: {r: 0.18356872, g: 0.22771809, b: 0.29750252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -512,6 +512,12 @@ MonoBehaviour:
           m_StringArgument: '#11ff00'
           m_BoolArgument: 0
         m_CallState: 2
+  OnGripped:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDropped:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &263355075
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -719,7 +725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 10
-  grabber: {fileID: 1742543814}
+  interactor: {fileID: 1742543814}
   moveSpeed: 0.2
 --- !u!114 &1742543814
 MonoBehaviour:
@@ -730,7 +736,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1742543809}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c41b07b34dabd4468f89298ce0c1223, type: 3}
+  m_Script: {fileID: 11500000, guid: 2582d68ebac82bd43a2b16e703d1592f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   InteractEnter:

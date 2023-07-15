@@ -5,7 +5,7 @@ namespace HotQueen.Interaction
     public class MouseInteractor : MonoBehaviour
     {
         public float distance = 1f;
-        public Grabber grabber;
+        public Interactor interactor;
         public float moveSpeed = 1;
 
         private void Update()
@@ -24,11 +24,11 @@ namespace HotQueen.Interaction
             //Activate
             if (Input.GetMouseButtonDown(1))
             {
-                grabber.Activate();
+                interactor.Activate();
             }
             else if (Input.GetMouseButtonUp(1))
             {
-                grabber.CancelActivate();
+                interactor.CancelActivate();
             }
         }
 
@@ -41,14 +41,14 @@ namespace HotQueen.Interaction
                 if (hitInfo.collider.attachedRigidbody
                     && hitInfo.collider.attachedRigidbody.TryGetComponent<InteractBase>(out InteractBase interact))
                 {
-                    grabber.Interact(interact);
+                    interactor.Interact(interact);
                 }
 
 
             }
             else if (Input.GetMouseButtonUp(0))
             {
-                grabber.CancelInteract();
+                interactor.CancelInteract();
             }
         }
 
