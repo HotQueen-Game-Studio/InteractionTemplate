@@ -14,6 +14,7 @@ namespace HotQueen.Interaction
 
         //Object being interacted
         private InteractBase interacting;
+        [SerializeField] private bool interactOnCollision;
 
         //Attach references
         [SerializeField] private Transform m_attach;
@@ -50,6 +51,51 @@ namespace HotQueen.Interaction
             ActivateArg args = new(this, interacting);
             interacting.Deactivate(args);
             ActivateCancelled?.Invoke(args);
+        }
+        private void OnCollisionEnter(Collision collision)
+        {
+            InteractByCollision(collision.collider);
+        }
+        private void OnCollisionExit(Collision collision)
+        {
+            CancelInteractByCollision(collision.collider);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            InteractByCollision(other);
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            CancelInteractByCollision(other);
+        }
+
+        public void InteractByCollision(Collider collision)
+        {
+            if (!interactOnCollision) { return; }
+
+            if (collision.attachedRigidbody && collision.attachedRigidbody.TryGetComponent<InteractBase>(out InteractBase interactBase))
+            {
+                Interact(interactBase);
+            }
+            else if (collision.TryGetComponent<InteractBase>(out interactBase))
+            {
+                Interact(interactBase);
+            }
+        }
+
+        public void CancelInteractByCollision(Collider collision)
+        {
+            if (!interactOnCollision) { return; }
+            if (collision.attachedRigidbody.TryGetComponent<InteractBase>(out InteractBase interactBase))
+            {
+                CancelInteract();
+            }
+            else if (collision.TryGetComponent<InteractBase>(out interactBase))
+            {
+                CancelInteract();
+            }
         }
     }
 }

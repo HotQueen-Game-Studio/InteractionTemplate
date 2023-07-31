@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 118124490}
   - component: {fileID: 118124491}
   - component: {fileID: 118124492}
+  - component: {fileID: 118124493}
   m_Layer: 0
   m_Name: InteractableCube
   m_TagString: Untagged
@@ -219,7 +220,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 118124483}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2494d48347ce2a43b0b7d296696b6cf, type: 3}
+  m_Script: {fileID: 11500000, guid: f636d927bf633b94194cd2acd786ef7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_renderer: {fileID: 118124485}
@@ -324,6 +325,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &118124493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118124483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2582d68ebac82bd43a2b16e703d1592f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  InteractionCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  interactOnCollision: 0
+  m_attach: {fileID: 0}
 --- !u!1 &263355066
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +366,7 @@ GameObject:
   - component: {fileID: 263355068}
   - component: {fileID: 263355074}
   - component: {fileID: 263355075}
+  - component: {fileID: 263355076}
   m_Layer: 0
   m_Name: GrabbableCube
   m_TagString: Untagged
@@ -371,7 +399,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 263355066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2494d48347ce2a43b0b7d296696b6cf, type: 3}
+  m_Script: {fileID: 11500000, guid: f636d927bf633b94194cd2acd786ef7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_renderer: {fileID: 263355071}
@@ -531,6 +559,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &263355076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263355066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2582d68ebac82bd43a2b16e703d1592f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  InteractionCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  interactOnCollision: 0
+  m_attach: {fileID: 0}
 --- !u!1 &1369549782
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,9 +778,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3dfd150168d1a418c70b5e74cd855a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 10
-  interactor: {fileID: 1742543814}
-  moveSpeed: 0.2
 --- !u!114 &1742543814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -751,6 +802,7 @@ MonoBehaviour:
   ActivateCancelled:
     m_PersistentCalls:
       m_Calls: []
+  interactOnCollision: 0
   m_attach: {fileID: 1838488031}
 --- !u!1 &1838488030
 GameObject:
