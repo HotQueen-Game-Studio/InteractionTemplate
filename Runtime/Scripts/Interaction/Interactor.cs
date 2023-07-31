@@ -12,11 +12,13 @@ namespace HotQueen.Interaction
         public UnityEvent<ActivateArg> ActivateEnter;
         public UnityEvent<ActivateArg> ActivateCancelled;
 
+        //DATA
+        [SerializeField] protected ReferenceData m_data;
+        public ReferenceData data { get { return m_data; } }
+
         //Object being interacted
         private InteractBase interacting;
-
-        //Attach references
-        [SerializeField] private Transform m_attach;
+        private Transform m_attach;
         public Transform attach { get { return m_attach; } }
 
 
