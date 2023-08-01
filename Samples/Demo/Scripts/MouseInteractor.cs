@@ -22,11 +22,11 @@ namespace HotQueen.Interaction
         private void InputActivate()
         {
             //Activate
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 interactor.Activate();
             }
-            else if (Input.GetMouseButtonUp(1))
+            else if (Input.GetKeyUp(KeyCode.E))
             {
                 interactor.CancelActivate();
             }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,9 +5,18 @@ namespace HotQueen.Interaction
 {
     public static class InteractionManager
     {
+
+        public delegate void RegistryEvent<T>(T value) where T : struct;
+        //Interaction
         private static List<InteractionArg> m_interactionArgs = new List<InteractionArg>();
-        public static event Action<InteractionArg> OnRegister;
-        public static event Action<InteractionArg> OnRemoved;
+        public static event RegistryEvent<InteractionArg> OnRegistered; // Create delegate to registry
+        public static event RegistryEvent<InteractionArg> OnRemoved;
+
+        //Activate
+        private static List<ActivateArg> m_activateArgs = new List<ActivateArg>();
+        private static event RegistryEvent<ActivateArg> OnActivate;
+        private static event RegistryEvent<ActivateArg> OnDeactivate;
+
         public static bool Register(InteractionArg arg)
         {
             if (
@@ -19,7 +27,7 @@ namespace HotQueen.Interaction
                 )) { return false; }
 
             m_interactionArgs.Add(arg);
-            OnRegister?.Invoke(arg);
+            OnRegistered?.Invoke(arg);
             arg.interacted.Interact(arg);
             Debug.Log("Registered:" + arg.interactor + "/" + arg.interacted);
             return true;
@@ -29,30 +37,43 @@ namespace HotQueen.Interaction
         {
             if (!m_interactionArgs.Contains(arg)) { return false; }
 
-
             m_interactionArgs.Remove(arg);
-            OnRemoved?.Invoke(arg);
             arg.interacted.StopInteraction(arg);
+            OnRemoved?.Invoke(arg);
             Debug.Log("Removed:" + arg.interactor + "/" + arg.interacted);
             return true;
         }
 
-        public static bool Find(InteractionArg arg, out InteractionArg result)
+        public static bool Activate(Interactor interactor)
         {
-            result = new InteractionArg();
             foreach (var item in m_interactionArgs)
             {
-                if (arg.interacted == item.interacted && arg.interactor == item.interactor)
+                if (item.interactor == interactor && item.interacted.transform.TryGetComponent<IActivate>(out IActivate activate))
                 {
-                    result = item;
+                    ActivateArg arg = new ActivateArg(interactor, activate);
+                    activate.Activate(arg);
+                    m_activateArgs.Add(arg);
+                    OnActivate?.Invoke(arg);
                     return true;
                 }
             }
             return false;
         }
-        public static bool Find(InteractionArg arg)
+
+        public static bool Deactivate(Interactor interactor)
         {
-            return Find(arg, out InteractionArg result);
+            foreach (var item in m_interactionArgs)
+            {
+                if (item.interactor == interactor && item.interacted.transform.TryGetComponent<IActivate>(out IActivate activate))
+                {
+                    ActivateArg arg = new ActivateArg(interactor, activate);
+                    activate.Deactivate(arg);
+                    m_activateArgs.Remove(arg);
+                    OnDeactivate?.Invoke(arg);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

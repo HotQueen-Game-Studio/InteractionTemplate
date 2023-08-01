@@ -417,18 +417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3bdcac51313684591d462160a80d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  InteractionCancelled:
-    m_PersistentCalls:
-      m_Calls: []
-  ActivateEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  ActivateCancelled:
-    m_PersistentCalls:
-      m_Calls: []
   interactOnCollision: 1
   m_attach: {fileID: 0}
 --- !u!1 &1045187584 stripped
@@ -464,18 +452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3bdcac51313684591d462160a80d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  InteractionCancelled:
-    m_PersistentCalls:
-      m_Calls: []
-  ActivateEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  ActivateCancelled:
-    m_PersistentCalls:
-      m_Calls: []
   interactOnCollision: 1
   m_attach: {fileID: 0}
 --- !u!1 &1439470066
@@ -507,26 +483,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1439470066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2582d68ebac82bd43a2b16e703d1592f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b3bdcac51313684591d462160a80d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractEnter:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  InteractionCancelled:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  ActivateEnter:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  ActivateCancelled:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  interacting: {fileID: 0}
+  interactOnCollision: 0
   m_attach: {fileID: 0}
 --- !u!114 &1439470068
 MonoBehaviour:
@@ -666,7 +626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5122117232586024831, guid: f7fa12df9c47a514b9afca3442b2b13d, type: 3}
       propertyPath: Deactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: '#42f55a'
+      value: '#fc0303'
       objectReference: {fileID: 0}
     - target: {fileID: 5122117232586024831, guid: f7fa12df9c47a514b9afca3442b2b13d, type: 3}
       propertyPath: StoppedInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
