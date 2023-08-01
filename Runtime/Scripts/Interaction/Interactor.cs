@@ -27,6 +27,7 @@ namespace HotQueen.Interaction
             interacting.Activate(args);
             ActivateEnter?.Invoke(args);
         }
+
         public void CancelActivate()
         {
             if (interacting == null) { return; }
@@ -34,16 +35,16 @@ namespace HotQueen.Interaction
             interacting.Deactivate(args);
             ActivateCancelled?.Invoke(args);
         }
+
         private void OnCollisionEnter(Collision collision)
         {
             Debug.Log(this.transform.name + "/" + collision.relativeVelocity.magnitude);
             InteractByCollision(collision.collider);
         }
+
         private void OnCollisionExit(Collision collision)
         {
-
             CancelInteractByCollision(collision.collider);
-
         }
 
         private void OnTriggerEnter(Collider other)
@@ -60,10 +61,27 @@ namespace HotQueen.Interaction
         {
             if (!interactOnCollision) { return; }
 
-            if (collision.attachedRigidbody && collision.attachedRigidbody.TryGetComponent<InteractBase>(out InteractBase interactBase) 
+            if (collision.attachedRigidbody && collision.attachedRigidbody.TryGetComponent<InteractBase>(out InteractBase interactBase)
                 || collision.TryGetComponent<InteractBase>(out interactBase))
             {
-                InteractionManager.Register(new InteractionArg(this, interactBase));
+                Interact(interactBase);
+            }
+        }
+
+        public void Interact(InteractBase interact)
+        {
+            if (InteractionManager.Register(new InteractionArg(this, interact)))
+            {
+                interacting = interact;
+            }
+
+        }
+
+        public void CancelInteraction()
+        {
+            if (InteractionManager.Remove(new InteractionArg(this, interacting)))
+            {
+                interacting = null;
             }
         }
 
@@ -73,7 +91,7 @@ namespace HotQueen.Interaction
             if (collision.attachedRigidbody && collision.attachedRigidbody.TryGetComponent<InteractBase>(out InteractBase interactBase)
                 || collision.TryGetComponent<InteractBase>(out interactBase))
             {
-                InteractionManager.Remove(new InteractionArg(this, interactBase));
+                CancelInteraction();
             }
         }
     }

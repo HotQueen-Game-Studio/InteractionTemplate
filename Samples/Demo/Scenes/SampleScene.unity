@@ -276,6 +276,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestCube (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5122117232586024831, guid: f7fa12df9c47a514b9afca3442b2b13d, type: 3}
+      propertyPath: Interacted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: '#fc0303'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5122117232586024831, guid: f7fa12df9c47a514b9afca3442b2b13d, type: 3}
+      propertyPath: Deactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: '#42f55a'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5122117232586024831, guid: f7fa12df9c47a514b9afca3442b2b13d, type: 3}
+      propertyPath: StoppedInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: '#42f55a'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7fa12df9c47a514b9afca3442b2b13d, type: 3}
 --- !u!1 &577681056
@@ -393,6 +405,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1019788056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019788048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3bdcac51313684591d462160a80d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  InteractionCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  interactOnCollision: 1
+  m_attach: {fileID: 0}
 --- !u!1 &1045187584 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5122117232586024830, guid: f7fa12df9c47a514b9afca3442b2b13d, type: 3}
@@ -414,6 +452,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1045187592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045187584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3bdcac51313684591d462160a80d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  InteractionCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  interactOnCollision: 1
+  m_attach: {fileID: 0}
 --- !u!1 &1439470066
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,15 +513,21 @@ MonoBehaviour:
   InteractEnter:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   InteractionCancelled:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   ActivateEnter:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   ActivateCancelled:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
+  interacting: {fileID: 0}
+  m_attach: {fileID: 0}
 --- !u!114 &1439470068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,6 +663,14 @@ PrefabInstance:
     - target: {fileID: 5122117232586024830, guid: f7fa12df9c47a514b9afca3442b2b13d, type: 3}
       propertyPath: m_Name
       value: TestCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 5122117232586024831, guid: f7fa12df9c47a514b9afca3442b2b13d, type: 3}
+      propertyPath: Deactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: '#42f55a'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5122117232586024831, guid: f7fa12df9c47a514b9afca3442b2b13d, type: 3}
+      propertyPath: StoppedInteraction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: '#42f55a'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7fa12df9c47a514b9afca3442b2b13d, type: 3}

@@ -9,30 +9,32 @@ namespace HotQueen.Interaction
         private static List<InteractionArg> m_interactionArgs = new List<InteractionArg>();
         public static event Action<InteractionArg> OnRegister;
         public static event Action<InteractionArg> OnRemoved;
-        public static void Register(InteractionArg arg)
+        public static bool Register(InteractionArg arg)
         {
             if (
                 m_interactionArgs.Contains(arg)
                 || arg.interacted.transform.TryGetComponent<Interactor>(out Interactor interactor)
                 && arg.interactor.transform.TryGetComponent<InteractBase>(out InteractBase interactBase)
                 && m_interactionArgs.Contains(new InteractionArg(interactor, interactBase)
-                )) { return; }
+                )) { return false; }
 
             m_interactionArgs.Add(arg);
             OnRegister?.Invoke(arg);
             arg.interacted.Interact(arg);
             Debug.Log("Registered:" + arg.interactor + "/" + arg.interacted);
+            return true;
         }
 
-        public static void Remove(InteractionArg arg)
+        public static bool Remove(InteractionArg arg)
         {
-            if (!m_interactionArgs.Contains(arg)) { return; }
+            if (!m_interactionArgs.Contains(arg)) { return false; }
 
 
             m_interactionArgs.Remove(arg);
             OnRemoved?.Invoke(arg);
             arg.interacted.StopInteraction(arg);
             Debug.Log("Removed:" + arg.interactor + "/" + arg.interacted);
+            return true;
         }
 
         public static bool Find(InteractionArg arg, out InteractionArg result)
