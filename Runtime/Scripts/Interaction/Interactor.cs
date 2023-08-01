@@ -12,32 +12,13 @@ namespace HotQueen.Interaction
         public UnityEvent<ActivateArg> ActivateEnter;
         public UnityEvent<ActivateArg> ActivateCancelled;
 
-        //DATA
-        [SerializeField] protected ReferenceData m_data;
-        public ReferenceData data { get { return m_data; } }
-
         //Object being interacted
         private InteractBase interacting;
-        private Transform m_attach;
+        [SerializeField] private bool interactOnCollision;
+
+        //Attach references
+        [SerializeField] private Transform m_attach;
         public Transform attach { get { return m_attach; } }
-
-
-        public void Interact(InteractBase interact)
-        {
-            InteractionArg args = new(this, interact);
-            interact.Interact(args);
-            InteractEnter?.Invoke(args);
-            interacting = interact;
-        }
-
-        public void CancelInteract()
-        {
-            if (interacting == null) { return; }
-            InteractionArg args = new(this, interacting);
-            interacting.StopInteraction(args);
-            InteractionCancelled?.Invoke(args);
-            interacting = null;
-        }
 
         public void Activate()
         {
@@ -52,6 +33,48 @@ namespace HotQueen.Interaction
             ActivateArg args = new(this, interacting);
             interacting.Deactivate(args);
             ActivateCancelled?.Invoke(args);
+        }
+        private void OnCollisionEnter(Collision collision)
+        {
+            Debug.Log(this.transform.name + "/" + collision.relativeVelocity.magnitude);
+            InteractByCollision(collision.collider);
+        }
+        private void OnCollisionExit(Collision collision)
+        {
+
+            CancelInteractByCollision(collision.collider);
+
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            InteractByCollision(other);
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            CancelInteractByCollision(other);
+        }
+
+        public void InteractByCollision(Collider collision)
+        {
+            if (!interactOnCollision) { return; }
+
+            if (collision.attachedRigidbody && collision.attachedRigidbody.TryGetComponent<InteractBase>(out InteractBase interactBase) 
+                || collision.TryGetComponent<InteractBase>(out interactBase))
+            {
+                InteractionManager.Register(new InteractionArg(this, interactBase));
+            }
+        }
+
+        public void CancelInteractByCollision(Collider collision)
+        {
+            if (!interactOnCollision) { return; }
+            if (collision.attachedRigidbody && collision.attachedRigidbody.TryGetComponent<InteractBase>(out InteractBase interactBase)
+                || collision.TryGetComponent<InteractBase>(out interactBase))
+            {
+                InteractionManager.Remove(new InteractionArg(this, interactBase));
+            }
         }
     }
 }

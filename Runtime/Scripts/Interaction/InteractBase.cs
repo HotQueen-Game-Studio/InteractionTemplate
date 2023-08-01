@@ -1,4 +1,3 @@
-using HotQueen.Interaction.Extra;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,13 +12,7 @@ namespace HotQueen.Interaction
         [SerializeField] private UnityEvent<ActivateArg> Activated;
         [SerializeField] private UnityEvent<ActivateArg> Deactivated;
 
-
         public Transform transform { get { return base.transform; } }
-
-        //DATA
-        [SerializeField] private ReferenceData m_data;
-        public ReferenceData data { get { return m_data; } }
-
 
         //action
         public event Action<InteractionArg> interacted;
