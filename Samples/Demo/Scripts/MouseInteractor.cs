@@ -41,14 +41,14 @@ namespace HotQueen.Interaction
                 if (hitInfo.collider.attachedRigidbody
                     && hitInfo.collider.attachedRigidbody.TryGetComponent<InteractBase>(out InteractBase interact))
                 {
-                    interactor.Interact(interact);
+                    //interactor.Interact(interact);
                 }
 
 
             }
             else if (Input.GetMouseButtonUp(0))
             {
-                interactor.CancelInteract();
+                //interactor.CancelInteract();
             }
         }
 

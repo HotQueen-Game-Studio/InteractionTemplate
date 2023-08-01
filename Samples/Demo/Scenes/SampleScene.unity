@@ -165,7 +165,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3e66b5fc18af4f14083ab8b8f9b838df, type: 2}
+  - {fileID: 2100000, guid: 125ce9ab21111d045953d20386548611, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -203,7 +203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118124483}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.236932, y: 0.15407944, z: -5.2548304}
+  m_LocalPosition: {x: 2.74, y: 0.15407944, z: -5.2548304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -236,9 +236,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &118124491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +324,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!114 &118124493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118124483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2582d68ebac82bd43a2b16e703d1592f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  InteractionCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  interactOnCollision: 1
+  m_attach: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!1 &263355066
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,9 +388,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &263355069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +424,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e7da7f6e451ca114681009b2af060f6a, type: 2}
+  - {fileID: 2100000, guid: 841c2614be362134ea7a498404812db5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -433,7 +462,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263355066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.986932, y: 0.15407944, z: -5.2548304}
+  m_LocalPosition: {x: 4.49, y: 0.15407944, z: -5.2548304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -531,6 +560,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!114 &263355076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263355066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2582d68ebac82bd43a2b16e703d1592f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  InteractionCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  ActivateCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  interactOnCollision: 1
+  m_attach: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!1 &1369549782
 GameObject:
   m_ObjectHideFlags: 0
