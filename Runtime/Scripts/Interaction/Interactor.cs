@@ -5,8 +5,6 @@ namespace HotQueen.Interaction
 
     public class Interactor : MonoBehaviour
     {
-        //Object being interacted
-        private InteractBase interacting;
         [SerializeField] private bool interactOnCollision;
 
         //Attach references
@@ -15,9 +13,9 @@ namespace HotQueen.Interaction
 
         //Activate
 
-        public void Activate()
+        public void Activate(IActivate activate)
         {
-            InteractionManager.Activate(this);
+            InteractionManager.Activate(new ActivateArg(this, activate));
         }
 
         public void CancelActivate()
@@ -29,20 +27,13 @@ namespace HotQueen.Interaction
         public void Interact(InteractBase interact)
         {
             InteractionArg arg = new InteractionArg(this, interact);
-            if (InteractionManager.Register(arg))
-            {
-                interacting = interact;
-            }
+            InteractionManager.RegisterInteraction(arg);
 
         }
 
         public void CancelInteraction()
         {
-            InteractionArg arg = new InteractionArg(this, interacting);
-            if (InteractionManager.Remove(arg))
-            {
-                interacting = null;
-            }
+            InteractionManager.RemoveInteraction(this);
         }
 
         //Interaction By Collision

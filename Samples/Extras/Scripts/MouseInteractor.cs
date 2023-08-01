@@ -16,15 +16,20 @@ namespace HotQueen.Interaction
 
             Move();
             InputInteraction(hitInfo);
-            InputActivate();
+            InputActivate(hitInfo);
         }
 
-        private void InputActivate()
+        private void InputActivate(RaycastHit hitInfo)
         {
-            //Activate
+            //Interact
             if (Input.GetKeyDown(KeyCode.E))
             {
-                interactor.Activate();
+
+                if (hitInfo.collider.attachedRigidbody
+                    && hitInfo.collider.attachedRigidbody.TryGetComponent<InteractBase>(out InteractBase interact))
+                {
+                    interactor.Activate(interact);
+                }
             }
             else if (Input.GetKeyUp(KeyCode.E))
             {
@@ -43,8 +48,6 @@ namespace HotQueen.Interaction
                 {
                     interactor.Interact(interact);
                 }
-
-
             }
             else if (Input.GetMouseButtonUp(0))
             {
