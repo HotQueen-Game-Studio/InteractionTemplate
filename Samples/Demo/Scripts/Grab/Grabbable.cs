@@ -5,7 +5,7 @@ namespace HotQueen.Interaction
 {
     public class Grabbable : InteractBase
     {
-        public UnityEvent<GrabArg> OnGripped;
+        public UnityEvent<GrabArg> OnGrabbed;
         public UnityEvent<GrabArg> OnDropped;
         private Transform attach;
 
@@ -31,7 +31,7 @@ namespace HotQueen.Interaction
         private void Grab(GrabArg args)
         {
             attach = args.grabber.attach;
-            OnGripped?.Invoke(args);
+            OnGrabbed?.Invoke(args);
         }
         private void Drop(GrabArg args)
         {

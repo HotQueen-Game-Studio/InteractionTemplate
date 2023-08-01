@@ -7,10 +7,10 @@ namespace HotQueen.Interaction
     public class InteractBase : MonoBehaviour, IInteract, IActivate
     {
         //unity event
-        [SerializeField] private UnityEvent<InteractionArg> Interacted;
-        [SerializeField] private UnityEvent<InteractionArg> StoppedInteraction;
-        [SerializeField] private UnityEvent<ActivateArg> Activated;
-        [SerializeField] private UnityEvent<ActivateArg> Deactivated;
+        [SerializeField] private UnityEvent<InteractionArg> onInteracted;
+        [SerializeField] private UnityEvent<InteractionArg> onStoppedInteraction;
+        [SerializeField] private UnityEvent<ActivateArg> onActivated;
+        [SerializeField] private UnityEvent<ActivateArg> onDeactivated;
 
         public Transform transform { get { return base.transform; } }
 
@@ -22,10 +22,10 @@ namespace HotQueen.Interaction
 
         private void Awake()
         {
-            interacted += (ctx) => Interacted?.Invoke(ctx);
-            stoppedInteraction += (ctx) => StoppedInteraction?.Invoke(ctx);
-            activated += (ctx) => Activated?.Invoke(ctx);
-            deactivated += (ctx) => Deactivated?.Invoke(ctx);
+            interacted += (ctx) => onInteracted?.Invoke(ctx);
+            stoppedInteraction += (ctx) => onStoppedInteraction?.Invoke(ctx);
+            activated += (ctx) => onActivated?.Invoke(ctx);
+            deactivated += (ctx) => onDeactivated?.Invoke(ctx);
         }
 
         public virtual void Activate(ActivateArg args)
