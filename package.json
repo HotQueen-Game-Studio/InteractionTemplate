@@ -20,7 +20,7 @@
         {
             "displayName": "Demo",
             "description": "Contains example of how this package works",
-            "path": "Samples~/Demo"
+            "path": "Samples~/Extras"
         }
     ]
 }
