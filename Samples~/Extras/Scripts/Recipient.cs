@@ -2,7 +2,7 @@ using HotQueen.Interaction;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Cittius.Tools
+namespace HotQueen.Interaction
 {
     public class Recipient : MonoBehaviour
     {
