@@ -94,17 +94,53 @@ namespace HotQueen.Interaction
         /// <summary>
         /// Return all the <param name="interactor"></param> interactions
         /// </summary>
-        public static IInteract[] Find(Interactor interactor)
+        public static IInteract FindInteraction(Interactor interactor)
         {
-            List<IInteract> interactBases = new List<IInteract>();
             foreach (var item in m_interactionArgs)
             {
                 if (item.interactor == interactor)
                 {
-                    interactBases.Add(item.interacted);
+                    return item.interacted;
                 }
             }
-            return interactBases.ToArray();
+            return null;
+        }
+
+        /// <summary>
+        /// Return all the <param name="interactor"></param> interactions
+        /// </summary>
+        public static IActivate FindActivity(Interactor interactor)
+        {
+            foreach (var item in m_activateArgs)
+            {
+                if (item.interactor == interactor)
+                {
+                    return item.activated;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Return all the <param name="interactor"></param> interactions
+        /// </summary>
+        public static Interactor FindInteractor(InteractBase interactBase)
+        {
+            foreach (var item in m_activateArgs)
+            {
+                if (item.activated == interactBase.GetComponent<IActivate>())
+                {
+                    return item.interactor;
+                }
+            }
+            foreach (var item in m_interactionArgs)
+            {
+                if (item.interacted == interactBase.GetComponent<IInteract>())
+                {
+                    return item.interactor;
+                }
+            }
+            return null;
         }
     }
 }

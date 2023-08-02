@@ -60,6 +60,7 @@ namespace HotQueen.Interaction
             Vector3 direction = new Vector3();
             direction.x = Input.GetAxis("Horizontal");
             direction.z = Input.GetAxis("Vertical");
+            direction.y = Input.mouseScrollDelta.y;
 
             this.transform.position += direction * moveSpeed;
         }

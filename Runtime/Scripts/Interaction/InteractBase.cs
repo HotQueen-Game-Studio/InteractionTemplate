@@ -47,5 +47,39 @@ namespace HotQueen.Interaction
         {
             stoppedInteraction?.Invoke(args);
         }
+
+        /// <summary>
+        /// On colide with another Iactivate object, this component will try to trigger interactor to initiate a activation.
+        /// Else will do nothing
+        /// </summary>
+        /// <param name="collision"></param>
+        private void OnCollisionEnter(Collision collision)
+        {
+
+            if (collision.collider.attachedRigidbody
+                && collision.collider.attachedRigidbody.TryGetComponent<IActivate>(out IActivate activate))
+            {
+                Interactor interactor = InteractionManager.FindInteractor(this);
+                if (interactor)
+                {
+                    interactor.Activate(activate);
+                }
+
+            }
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            if (collision.collider.attachedRigidbody
+               && collision.collider.attachedRigidbody.TryGetComponent<IActivate>(out IActivate activate))
+            {
+                Interactor interactor = InteractionManager.FindInteractor(this);
+                if (interactor)
+                {
+                    interactor.CancelActivate();
+                }
+
+            }
+        }
     }
 }
